@@ -1,3 +1,4 @@
+/* General styles */
 .bg-light {
   background-color: #d0dbe7 !important;
   max-height: 100px !important;
@@ -15,13 +16,14 @@
   transition: width 0.3s ease;
 }
 
-/* Default styles */
+/* Menu button styling */
 .menu-btn {
   display: none; /* Hide menu button by default */
   font-size: 1.5rem;
   cursor: pointer;
 }
 
+/* Navigation menu styling */
 nav ul {
   display: flex; /* Show nav links by default for large screens */
   flex-direction: row;
@@ -38,40 +40,23 @@ nav ul {
   /* Show the menu button on small screens */
   .menu-btn {
     display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1100;
   }
 
   /* Hide nav links on small screens by default */
   nav ul {
     display: none;
     flex-direction: column;
-    gap: 0.5rem;
     align-items: center;
-  }
-
-  /* Show nav links when the menu button is toggled */
-  nav ul.show {
-    display: flex;
-  }
-}
-
-@media (max-width: 576px) {
-  /* Adjust font size for very small screens */
-  .nav-link {
-    font-size: 0.9rem;
-  }
-
-  /* Further reduce the logo size */
-  .logo img {
-    width: 60px;
-  }
-}
-
-@media (max-width: 768px) {
-  nav {
+    background: white;
     position: absolute;
     top: 60px;
     right: 10px;
-    background: white;
     width: 200px;
     padding: 10px;
     border-radius: 10px;
@@ -79,13 +64,7 @@ nav ul {
     z-index: 1000;
   }
 
-  nav ul {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-  }
+  /* Show nav links when the menu button is toggled */
   nav ul.show {
     display: flex;
   }
@@ -102,42 +81,35 @@ nav ul {
     color: black;
     text-decoration: none;
   }
+}
 
-  .menu-btn {
+/* Hide the navigation menu by default on smaller screens */
+@media (max-width: 768px) {
+  #nav-menu {
+    display: none;
+  }
+
+  #nav-menu.show {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.5rem;
-    cursor: pointer;
+    top: 60px; /* Adjust based on your header height */
+    right: 0;
+    background-color: #f8f9fa; /* Match your header background */
+    padding: 10px;
+    width: 100%;
   }
 }
 
-@media (max-width: 768px) {
-  nav ul {
-    display: none; /* Hide menu initially */
-    flex-direction: column;
-    background: white;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    width: 200px;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+@media (max-width: 576px) {
+  /* Adjust font size for very small screens */
+  .nav-link {
+    font-size: 0.9rem;
   }
 
-  nav ul.show {
-    display: flex; /* Show when toggled */
-  }
-
-  .menu-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.8rem;
-    cursor: pointer;
-    z-index: 1100;
+  /* Further reduce the logo size */
+  .logo img {
+    width: 60px;
   }
 }
 

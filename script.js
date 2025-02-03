@@ -1,17 +1,18 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const menuBtn = document.querySelector(".menu-btn");
-  const navMenu = document.querySelector("nav ul");
+// Get the menu button and navigation menu
+const menuBtn = document.getElementById("menu-btn");
+const navMenu = document.getElementById("nav-menu");
 
-  // Toggle menu when button is clicked
-  menuBtn.addEventListener("click", function (event) {
-    event.stopPropagation(); // Prevent click from bubbling up
-    navMenu.classList.toggle("show"); // Toggle visibility
-  });
+// Toggle the menu when the button is clicked
+menuBtn.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
+});
 
-  // Close menu when clicking outside
-  document.addEventListener("click", function (event) {
-    if (!menuBtn.contains(event.target) && !navMenu.contains(event.target)) {
-      navMenu.classList.remove("show");
-    }
-  });
+// Close the menu when clicking outside
+document.addEventListener("click", (event) => {
+  if (
+    !event.target.closest("#menu-btn") &&
+    !event.target.closest("#nav-menu")
+  ) {
+    navMenu.classList.remove("show");
+  }
 });
