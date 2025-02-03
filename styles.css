@@ -374,11 +374,12 @@ nav ul {
   margin: 50px auto;
   max-width: 1200px;
   text-align: center;
+  padding: 0 15px;
 }
 
 .specialist-item {
-  flex: 1 1 calc(25% -20px);
-  max-width: 250px;
+  flex: 1 1 calc(25% - 20px);
+  max-width: calc(25% - 20px);
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
@@ -406,16 +407,54 @@ nav ul {
   display: flex;
   gap: 20px;
   justify-content: center;
-  flex: wrap;
+  flex-wrap: wrap;
 }
+
+@media (max-width: 992px) {
+  .specialist-item {
+    flex: 1 1 calc(33.33% - 20px); /* 3 items per row */
+    max-width: calc(33.33% - 20px);
+  }
+
+  .specialist-item h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .specialist-item {
+    flex: 1 1 calc(50% - 20px); /* 2 items per row */
+    max-width: calc(50% - 20px);
+  }
+
+  .specialist-item h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .specialist-item {
+    flex: 1 1 100%; /* 1 item per row */
+    max-width: 100%;
+  }
+
+  .specialist-item h3 {
+    font-size: 14px;
+  }
+}
+
+/* Responsive Styling for 'Why You Choose Us' Section */
 
 .why-you-choose-us {
   margin: 2rem auto;
   max-width: 1200px;
-  text-align: center;
-  gap: 2rem;
   display: flex;
+  flex-direction: row; /* Ensures side-by-side layout on large screens */
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
   padding: 0 1rem;
+  text-align: center;
 }
 
 .doctor-doing-medical-exam img {
@@ -425,29 +464,60 @@ nav ul {
   object-fit: cover;
 }
 
-.why-you-choose-us why-choose-us {
+.why-choose-us {
   width: 100%;
   max-width: 500px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
-.why-you-choose-us why-choose-us {
-  ul {
-    list-style-type: none;
-    padding: 0;
+.why-choose-us ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.why-choose-us ul li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.why-choose-us ul li::before {
+  content: "\2713"; /* Unicode checkmark */
+  position: absolute;
+  left: 0;
+  color: #0f0; /* Bright green for cyberpunk vibes */
+  font-size: 1.2em;
+}
+
+.why-choose-us a {
+  color: #0ff; /* Neon cyan for cyberpunk aesthetic */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.why-choose-us a:hover {
+  color: #ff0; /* Neon yellow on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .why-you-choose-us {
+    flex-direction: column;
+    text-align: center;
   }
-  ul li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 10px;
+
+  .why-choose-us {
+    align-items: center;
+    text-align: center;
   }
-  ul li::before {
-    content: fa fa-check;
-    position: absolute;
-    left: 0;
-    color: green;
-    font-size: 1.2em;
+
+  .why-choose-us ul li {
+    text-align: left;
   }
 }
 
@@ -529,6 +599,61 @@ nav ul {
 
 .text-maroon {
   color: maroon;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .testimonial-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .testimonial-header,
+  .testimonial-card {
+    max-width: 100%;
+  }
+
+  .review-avatars img {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .quality-health-section {
+    padding: 1rem 0;
+  }
+
+  .quality-health-section h2 {
+    font-size: 1.75rem; /* Reduce heading size on smaller screens */
+  }
+
+  .quality-health-section p {
+    font-size: 0.9rem; /* Reduce paragraph font size on smaller screens */
+  }
+
+  .col-md-6.order-md-1.order-2 {
+    text-align: center;
+  }
+
+  .col-md-6.order-md-2.order-1 {
+    text-align: center;
+  }
+
+  .learn-more-link {
+    display: block;
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .quality-health-section h2 {
+    font-size: 2rem;
+  }
+
+  .quality-health-section p {
+    font-size: 0.95rem;
+  }
 }
 
 .newsletter-section {
@@ -637,4 +762,8 @@ nav ul {
   .service {
     padding: 15px;
   }
+}
+
+.footer .social-icons {
+  color: maroon !important;
 }
